@@ -1,0 +1,19 @@
+package com.example.GestionTI.Request;
+
+import com.example.GestionTI.Entidades.EstadoActivo;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class DetalleImpresora {
+    @Enumerated(EnumType.STRING)
+    private EstadoActivo estadoActivo;
+    private String conexion;
+}
