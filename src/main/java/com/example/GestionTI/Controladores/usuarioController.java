@@ -24,4 +24,5 @@ public class usuarioController {
         return usuarioServicio.usuariosArea(id);
     }
 
+
 }

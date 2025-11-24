@@ -10,6 +10,7 @@ import com.example.GestionTI.Servicios.UsuarioServicio;
 @RequestMapping("api/v1/auth")
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173")
 public class authController {
 
     private final UsuarioServicio usuarioServicio;
