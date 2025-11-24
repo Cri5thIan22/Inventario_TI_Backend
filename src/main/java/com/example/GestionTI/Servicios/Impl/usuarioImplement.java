@@ -91,7 +91,7 @@ public class usuarioImplement implements UsuarioServicio {
         Usuario usuario = usuarioRepositorio.findByEmail(email).orElseThrow(() -> new EntityNotFoundException("No existe usuario registrado con ese email"));
 
         if (!usuario.getContraseña().equals(logRequest.getContraseña())){
-            return "Contraseña incorrecta";
+            throw new IllegalArgumentException("Contraseña incorrecta");
         }
 
         return "Ingreso exitoso";
