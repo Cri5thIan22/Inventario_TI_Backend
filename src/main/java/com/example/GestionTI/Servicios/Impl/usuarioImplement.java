@@ -2,6 +2,7 @@ package com.example.GestionTI.Servicios.Impl;
 
 import com.example.GestionTI.Entidades.*;
 import com.example.GestionTI.Repositorio.*;
+import com.example.GestionTI.Request.LogRequest;
 import com.example.GestionTI.Servicios.UsuarioServicio;
 import com.example.GestionTI.Request.UsuarioRequest;
 import jakarta.persistence.EntityNotFoundException;
@@ -82,6 +83,18 @@ public class usuarioImplement implements UsuarioServicio {
     public List<Usuario> usuariosArea(Integer id) {
         Area area = areaRepositorio.findById(id).orElseThrow(() -> new EntityNotFoundException("No existe area creada con ese " +id));
         return usuarioRepositorio.findByAreaId(area.getId());
+    }
+
+    @Override
+    public String loginUsuario(LogRequest logRequest) {
+        String email = logRequest.getEmail();
+        Usuario usuario = usuarioRepositorio.findByEmail(email).orElseThrow(() -> new EntityNotFoundException("No existe usuario registrado con ese email"));
+
+        if (!usuario.getContraseña().equals(logRequest.getContraseña())){
+            return "Contraseña incorrecta";
+        }
+
+        return "Ingreso exitoso";
     }
 
     public Usuario getEntityUsuario(UsuarioRequest usuarioRequest){

@@ -1,6 +1,7 @@
 package com.example.GestionTI.Controladores;
 
 import com.example.GestionTI.Entidades.Usuario;
+import com.example.GestionTI.Request.LogRequest;
 import com.example.GestionTI.Request.UsuarioRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,11 @@ public class authController {
     @PostMapping("/registro")
     public ResponseEntity<String> registrarUsuario(@RequestBody UsuarioRequest usuarioRequest){
         return ResponseEntity.ok(usuarioServicio.registrarUsuario(usuarioRequest));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUsuario(@RequestBody LogRequest logRequest){
+        return ResponseEntity.ok(usuarioServicio.loginUsuario(logRequest));
     }
 
     @GetMapping("/usuario/{id}")

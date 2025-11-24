@@ -1,7 +1,6 @@
 package com.example.GestionTI.Servicios.Impl;
 
 import com.example.GestionTI.Entidades.Activo;
-import com.example.GestionTI.Entidades.Asignaciones;
 import com.example.GestionTI.Entidades.Informes;
 import com.example.GestionTI.Entidades.Usuario;
 import com.example.GestionTI.Repositorio.ActivoRepositorio;
