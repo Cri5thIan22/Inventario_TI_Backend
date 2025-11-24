@@ -26,4 +26,5 @@ public class specsLaptop {
     private String almacenamiento;
     private String ram;
     private String serie;
+    private String edadEquipo;
 }

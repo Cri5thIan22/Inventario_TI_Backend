@@ -45,6 +45,7 @@ public class activoImplement implements ActivoServicio {
                 detalleCpu.setProcesador(activoRequest.getDetalleCpu().getProcesador());
                 detalleCpu.setAlmacenamiento(activoRequest.getDetalleCpu().getAlmacenamiento());
                 detalleCpu.setRam(activoRequest.getDetalleCpu().getRam());
+                detalleCpu.setEdadEquipo(activoRequest.getDetalleCpu().getEdadEquipo());
                 cpuRepositorio.save(detalleCpu);
                 break;
             case LAPTOP:
@@ -56,6 +57,7 @@ public class activoImplement implements ActivoServicio {
                 detalleLaptop.setAlmacenamiento(activoRequest.getDetalleLaptop().getAlmacenamiento());
                 detalleLaptop.setRam(activoRequest.getDetalleLaptop().getRam());
                 detalleLaptop.setSerie(activoRequest.getDetalleLaptop().getSerie());
+                detalleLaptop.setEdadEquipo(activoRequest.getDetalleLaptop().getEdadEquipo());
                 laptopRepositorio.save(detalleLaptop);
                 break;
             case PANTALLA:
@@ -115,7 +117,8 @@ public class activoImplement implements ActivoServicio {
                         specsCpu.getSistema(),
                         specsCpu.getProcesador(),
                         specsCpu.getAlmacenamiento(),
-                        specsCpu.getRam());
+                        specsCpu.getRam(),
+                        specsCpu.getEdadEquipo());
                 especificacionDetalle.setDetalleCpu(detalleCpu);
                 break;
             case LAPTOP:
@@ -126,7 +129,8 @@ public class activoImplement implements ActivoServicio {
                         specsLaptop.getSistema(),
                         specsLaptop.getAlmacenamiento(),
                         specsLaptop.getRam(),
-                        specsLaptop.getSerie()
+                        specsLaptop.getSerie(),
+                        specsLaptop.getEdadEquipo()
                 );
                 especificacionDetalle.setDetalleLaptop(detalleLaptop);
                 break;

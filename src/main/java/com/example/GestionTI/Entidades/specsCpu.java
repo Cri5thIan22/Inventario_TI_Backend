@@ -25,4 +25,5 @@ public class specsCpu {
     private String procesador;
     private String almacenamiento;
     private String ram;
+    private String edadEquipo;
 }
