@@ -1,6 +1,7 @@
 package com.example.GestionTI.Servicios.Impl;
 
 import com.example.GestionTI.Entidades.Activo;
+import com.example.GestionTI.Entidades.Asignaciones;
 import com.example.GestionTI.Entidades.Informes;
 import com.example.GestionTI.Entidades.Usuario;
 import com.example.GestionTI.Repositorio.ActivoRepositorio;
@@ -27,8 +28,14 @@ public class informeImplement implements InformeServicio {
 
     @Override
     public String crearInforme(InformeRequest informeRequest) {
-        Usuario u = usuarioRepositorio.getReferenceById(informeRequest.getIdActivo());
+
         Activo a = activoRepositorio.getReferenceById(informeRequest.getIdActivo());
+        Usuario u = usuarioRepositorio.getReferenceById(informeRequest.getIdUsuario());
+        Optional<Asignaciones> asignacion = asignacionRepositorio.findByUsuarioIdAndActivoId(u.getId(), a.getId());
+
+        if (asignacion.isEmpty()){
+            throw new RuntimeException("Error este activo se encuentra asignado a otro usuario");
+        }
 
         Informes informe = new Informes();
         informe.setUsuario(u);
